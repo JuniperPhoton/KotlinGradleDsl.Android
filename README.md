@@ -10,6 +10,7 @@ Sample project to desmonstrate how to use Gradle Kotlin DSL in Android project, 
 - SourceSets altered;
 - Java 8 support;
 - Read local properties;
+- SigningConfigs;
 
 ## Build the app
 

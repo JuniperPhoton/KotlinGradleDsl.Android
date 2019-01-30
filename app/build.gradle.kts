@@ -29,6 +29,20 @@ val appVersionCode = extra["appVersionCode"] as Int
 val appVersionName = extra["appVersionName"] as String
 
 android {
+    signingConfigs {
+        create("release") {
+            val key: String? by project
+            val password: String? by project
+
+            if (key != null && password != null) {
+                keyAlias = key
+                keyPassword = password
+                storeFile = File("keystore/ms.jks")
+                storePassword = password
+            }
+        }
+    }
+
     compileSdkVersion(compileSDKVersion)
     defaultConfig {
         applicationId = "com.juniperphoton.android.ktdsltest"
