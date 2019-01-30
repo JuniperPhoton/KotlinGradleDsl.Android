@@ -9,6 +9,7 @@ Sample project to desmonstrate how to use Gradle Kotlin DSL in Android project, 
 - Flavor dimensions and product flavors;
 - SourceSets altered;
 - Java 8 support;
+- Read local properties;
 
 ## Build the app
 

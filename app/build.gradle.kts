@@ -10,6 +10,11 @@ plugins {
 }
 
 apply(from = "../version.gradle.kts")
+apply(from = "../source.gradle.kts")
+
+fun Project.hasLocalProperty(key: String): Boolean {
+    return extra.properties.containsKey(key)
+}
 
 val compileSDKVersion: Int by extra
 val minSDKVersion: Int by extra
@@ -83,6 +88,15 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
+    val hasLocal = rootProject.hasLocalProperty("useLocalRepo")
+    println("has local: $hasLocal")
+
+    val hasName = rootProject.hasLocalProperty("userName")
+    println("has userName: $hasName")
+
+    val hasPwd = rootProject.hasLocalProperty("userPassword")
+    println("has userPassword: $hasPwd")
 }
 
 dependencies {
@@ -95,4 +109,8 @@ dependencies {
     add("implementation", "androidx.appcompat:appcompat:$androidAppCompatVersion")
     add("implementation", "androidx.core:core-ktx:$androidKtxVersion")
     add("implementation", "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion")
+
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.1.1") {
+        exclude(group = "com.android.support", module = "support-annotations")
+    }
 }
