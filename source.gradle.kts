@@ -6,7 +6,7 @@ file?.useLines { lines ->
         sb.append(lineString + "\n")
 
         val split = lineString.split('=')
-        if (split.size != 2) return@useLines
+        if (split.size != 2) return@forEach
 
         val name = split[0]
         val value = split[1]
