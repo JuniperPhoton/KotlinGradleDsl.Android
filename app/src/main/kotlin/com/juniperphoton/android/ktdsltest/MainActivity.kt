@@ -1,18 +1,15 @@
 package com.juniperphoton.android.ktdsltest
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.juniperphoton.android.lib.Foo
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    companion object {
-        private const val TAG = "MainActivity"
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // todo use Kotlin Android extensions
-        //contentView.text = Foo().toString()
+        contentTextView.text = Foo().toString()
     }
 }
